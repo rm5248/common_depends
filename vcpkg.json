@@ -1,0 +1,38 @@
+{
+  "dependencies": [
+    "avcpp",
+    "boost",
+    {
+      "name": "dbus-cxx",
+      "features": [
+        "qt6"
+      ],
+      "platform": "linux"
+    },
+    "expat",
+    {
+      "name": "ffmpeg",
+      "features": [
+        "all"
+      ]
+    },
+    "fmt",
+    {
+      "name": "log4cxx",
+      "features": [
+        "qt6"
+      ]
+    },
+    "nlohmann-json",
+    "openal-soft",
+    "protobuf",
+    "qt-advanced-docking-system",
+    {
+      "name": "sdl3",
+      "features": [
+        "vulkan"
+      ]
+    },
+    "qtserialport"
+  ]
+}
