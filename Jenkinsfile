@@ -37,7 +37,7 @@ pipeline {
 
         stage('Install packages') {
             steps {
-                bat '"%VCPKG_ROOT%\\vcpkg.exe" install --triplet %VCPKG_TRIPLET% --x-install-root=vcpkg_installed'
+                bat '"%VCPKG_ROOT%\\vcpkg.exe" install --triplet %VCPKG_TRIPLET% --x-install-root=vcpkg_installed --keep-going'
             }
         }
 
