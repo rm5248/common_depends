@@ -33,6 +33,8 @@
         "vulkan"
       ]
     },
-    "qtserialport"
+    "qtserialport",
+    "imgui",
+    "imgui-node-editor"
   ]
 }
