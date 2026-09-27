@@ -10,7 +10,12 @@
       "platform": "linux"
     },
     "expat",
-    "ffmpeg",
+    {
+      "name": "ffmpeg",
+      "features": [
+        "all" 
+      ]
+    },
     "fmt",
     {
       "name": "log4cxx",
