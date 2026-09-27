@@ -5,9 +5,13 @@ pipeline {
 
     options {
         timestamps()
-        timeout(time: 4, unit: 'HOURS')
+        timeout(time: 8, unit: 'HOURS')
         disableConcurrentBuilds()
         buildDiscarder(logRotator(numToKeepStr: '1'))
+    }
+
+    tools{
+        git 'Default'
     }
 
     environment {
