@@ -34,7 +34,10 @@ pipeline {
 
         stage('Bootstrap vcpkg') {
             steps {
-                bat 'git clone --depth 1 https://github.com/microsoft/vcpkg.git "%VCPKG_ROOT%"'
+                // bat 'git clone --depth 1 https://github.com/microsoft/vcpkg.git "%VCPKG_ROOT%"'
+                dir('vcpkg'){
+                    checkout scmGit(branches: [[name: '*/master']], extensions: [cloneOption(depth: 1, noTags: true, reference: '', shallow: true)], gitTool: 'Default', userRemoteConfigs: [[url: 'https://github.com/microsoft/vcpkg.git']])
+                }
                 bat '"%VCPKG_ROOT%\\bootstrap-vcpkg.bat" -disableMetrics'
             }
         }
