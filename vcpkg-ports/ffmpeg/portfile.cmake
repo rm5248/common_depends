@@ -77,6 +77,22 @@ if(VCPKG_DETECTED_MSVC)
     string(REGEX REPLACE "(^| )-RTC1( |$)" " " VCPKG_COMBINED_C_FLAGS_DEBUG "${VCPKG_COMBINED_C_FLAGS_DEBUG}")
     string(REGEX REPLACE "(^| )-Od( |$)" " " VCPKG_COMBINED_C_FLAGS_DEBUG "${VCPKG_COMBINED_C_FLAGS_DEBUG}")
     string(REGEX REPLACE "(^| )-Ob0( |$)" " " VCPKG_COMBINED_C_FLAGS_DEBUG "${VCPKG_COMBINED_C_FLAGS_DEBUG}")
+
+    # libswscale/ops.h includes <stdalign.h>, which the UCRT only ships in
+    # Windows SDK 10.0.20348 and newer. Provide a fallback for older SDKs.
+    file(WRITE "${SOURCE_PATH}/compat/stdalign/stdalign.h" [[
+#ifndef COMPAT_STDALIGN_H
+#define COMPAT_STDALIGN_H
+#ifndef __cplusplus
+#define alignas _Alignas
+#define alignof _Alignof
+#define __alignas_is_defined 1
+#define __alignof_is_defined 1
+#endif
+#endif
+]])
+    string(APPEND VCPKG_COMBINED_C_FLAGS_DEBUG " -I \"${SOURCE_PATH}/compat/stdalign\"")
+    string(APPEND VCPKG_COMBINED_C_FLAGS_RELEASE " -I \"${SOURCE_PATH}/compat/stdalign\"")
 endif()
 
 string(APPEND VCPKG_COMBINED_C_FLAGS_DEBUG " -I \"${CURRENT_INSTALLED_DIR}/include\"")
