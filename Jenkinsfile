@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'windows10'
+        label 'windows11'
     }
 
     options {
