@@ -13,7 +13,7 @@
     {
       "name": "ffmpeg",
       "features": [
-        "all" 
+        "all"
       ]
     },
     "fmt",
