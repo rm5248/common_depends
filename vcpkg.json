@@ -34,6 +34,7 @@
       ]
     },
     "qtserialport",
+    "qtsvg",
     "imgui",
     "imgui-node-editor"
   ]
