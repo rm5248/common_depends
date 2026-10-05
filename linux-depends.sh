@@ -1,6 +1,15 @@
 #!/bin/bash
 
-apt-get install \
+set -e
+
+export DEBIAN_FRONTEND=noninteractive
+
+apt-get update
+apt-get install -y \
+  git \
+  ca-certificates \
+  pkg-config \
+  python3 \
   nasm \
   libxrender-dev \
   libxkbcommon-x11-dev \
@@ -31,6 +40,4 @@ apt-get install \
   libxrandr-dev \
   libxcb-xtest0-dev \
   libxext-dev \
-  libxtst-dev \
-
-
+  libxtst-dev
