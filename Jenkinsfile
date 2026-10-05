@@ -73,7 +73,7 @@ pipeline {
 
                 stage('Linux') {
                     agent {
-                        label 'built-in'
+                        label 'linux'
                     }
 
                     tools {
